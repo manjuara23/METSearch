@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Login
+{% endblock %}
+{% block error %}
+<div class="form-group" style="margin-left: 25%;margin-right: 25%;">
+{{error}}
+</div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="form-group" style="margin-left: 25%;margin-right: 25%;">
+        <form class="form-group" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <label for="username">Username</label>
+                <input required name="username">
+                <br>
+                <label for="password">Password</label>
+                <input required type="password" name="password">
+                <br>
+            </fieldset>
+            <button>
+                Submit
+            </button>
+            <a href="{% url 'signup' %}">Create account</a>
+            <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+        </form>
+    </div>
+{% endblock %}

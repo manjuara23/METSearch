@@ -1,0 +1,92 @@
+
+{% load static %}
+
+
+
+
+{%block main-content%}
+ <!-- Modal -->
+ <style>
+
+    ul#currentBuses:hover .deleteBus{
+        visibility: visible;
+    }
+    .deleteBus:hover {
+        background-color: rgb(208, 255, 0);
+        color: #fff;
+    }
+    .deleteBus{
+        text-transform: capitalize;
+       visibility: visible;
+        margin-top: 4px;
+        border: 2px solid #1e00ff6b;
+        padding: 0px 5px;
+        margin-left: 5px;
+        float: right;
+        color: rgb(19, 19, 19);
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: 0.2s;
+        font-weight: bold;
+
+    }
+</style>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/buslist.css">
+<title>AddBus</title>
+</head>
+<body style="background-color: #39044e;">
+
+<div id="wrapper">
+<section id="main-body">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="leftbar col-lg-6 col-md-12">
+                <div class="bus-input">
+                    <h5>Add new Bus</h5>
+                <form class="u-max-full-width u-full-width " id="addBusForm" method='POST'>
+                    <fieldset>
+                        {% csrf_token %}
+                        <input name="bus" class="u-full-width" type="text" placeholder="Bus Name" required id="addBusName">
+                        <input name="route" class="u-full-width" type="text" placeholder="Route No" id="addBusRoute" >
+                        <select class="u-full-width" name="type"  id="addBusType">
+                            <option disabled selected value="sitting">----Bus Type----</option>
+                            <option value="sitting">sitting</option>
+                            <option value="local">local</option>
+                        </select>
+                
+                
+                        <label for="addBusStationList">Stations [Start to Finish, Separated by comma]:</label>
+                        <textarea name="station" id="addBusStationList" class="u-full-width" placeholder="dhanmondi,shyamoli,bangla college,mirpur 10,uttara etc " required ></textarea>
+                    </fieldset>
+                    <!-- <input type="submit" class="button-#39044e u-full-width"> -->
+                    <button type="submit" class="button-#39044e u-full-width">Submit</button>
+
+                </form>
+                
+
+            
+            
+                </div>
+            </div>
+
+
+        </div>
+        <div class="navbar">
+            <a href="{% url 'Allbus' %}" id="floatLeft" class="active" >All bus</a>
+            <a href="{% url 'index' %}" class="floatRight" >Home</a>
+        </div>
+    </div>
+    
+</section>
+</div>
+
+{%endblock main-content%}
+
+    
+    

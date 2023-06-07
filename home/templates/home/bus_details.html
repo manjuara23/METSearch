@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bus Details</title>
+
+  </head>
+  <body>
+    <h2>Bus Details</h2>
+    <table dir="ltr" width="500" boarder="1">
+        <thead >
+        <tr><td>Bus Name</td>
+            <td>Route</td>
+            <td>First & Last Station</td>
+            <td>Bus Type</td>
+ 
+        </thead>
+        <tbody id="outputTable">
+     
+          <tr>
+            <td>{{bus.bus_name}}</td>
+    
+          
+
+
+                <td>{{bus.route}}</td>
+                <td>{{bus.station}}</td>
+          
+     
+            <td>{{bus.type}}</td>
+          </tr>
+       
+        </tbody>
+
+    </table>
+  </body>
+</html>
